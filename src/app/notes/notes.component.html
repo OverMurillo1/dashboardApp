@@ -2,10 +2,16 @@
 
   <div class="container">
     <div class="notes-list">
-      <div class="note-card">
-        <div class="note-card-title">This is a title</div>
-        <div class="note-card-content">I AM THE CONTENTTTTTTTT !!</div>
+      <app-note-card *ngFor="let note of notes" [note]="note"></app-note-card>
+    </div>
+
+    <div>
+      <div class="btns-container btns-centered">
+        <a routerLink="add" class="btn add-btn">
+          <i class="material-icons-outlined">add</i>
+          Nuevo</a>
       </div>
+
     </div>
   </div>
 
