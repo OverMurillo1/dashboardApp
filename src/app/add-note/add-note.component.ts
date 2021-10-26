@@ -11,6 +11,8 @@ import { NoteService } from '../shared/note.service';
 })
 export class AddNoteComponent implements OnInit {
 
+  validErrors !: boolean ;
+
   constructor(private noteService: NoteService,
               private router: Router) { }
 
@@ -19,7 +21,7 @@ export class AddNoteComponent implements OnInit {
 
   onFormSubmit(form: NgForm){
 
-    if (form.invalid) return alert('El formulario es invalido')
+    if (form.invalid) return this.validErrors = true;
     const note = new Note( form.value.title, form.value.content );
     this.noteService.addNote(note);
     this.router.navigateByUrl('/notes')

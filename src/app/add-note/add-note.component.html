@@ -4,7 +4,7 @@
   <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
     <div class="form-field">
       <input class="textbox" ngModel #titleField="ngModel" name="title" type="text" placeholder="Titulo de la nota" required minlength="3">
-      <ng-container *ngIf="titleField.invalid">
+      <ng-container *ngIf="validErrors && titleField.invalid">
         <p *ngIf="titleField.errors?.required">Ingresa un titulo de nota</p>
         <p *ngIf="titleField.errors?.minlength">Debes ingresar minimo 3 caracteres</p>
       </ng-container>
